@@ -7,22 +7,12 @@ import Zones from './Zones.js'
 import Objects from './Objects.js'
 import Car from './Car.js'
 import Areas from './Areas.js'
-import Tiles from './Tiles.js'
 import Walls from './Walls.js'
-import IntroSection from './Sections/IntroSection.js'
-import ProjectsSection from './Sections/ProjectsSection.js'
-import CrossroadsSection from './Sections/CrossroadsSection.js'
-import InformationSection from './Sections/InformationSection.js'
 import PlaygroundSection from './Sections/PlaygroundSection.js'
-// import DistinctionASection from './Sections/DistinctionASection.js'
-// import DistinctionBSection from './Sections/DistinctionBSection.js'
-// import DistinctionCSection from './Sections/DistinctionCSection.js'
-// import DistinctionDSection from './Sections/DistinctionDSection.js'
 import Controls from './Controls.js'
 import Sounds from './Sounds.js'
 import { TweenLite } from 'gsap/TweenLite'
 import { Power2 } from 'gsap/EasePack'
-import EasterEggs from './EasterEggs.js'
 
 export default class
 {
@@ -72,10 +62,8 @@ export default class
         this.setObjects()
         this.setCar()
         this.areas.car = this.car
-        this.setTiles()
         this.setWalls()
         this.setSections()
-        this.setEasterEggs()
     }
 
     setReveal()
@@ -95,11 +83,11 @@ export default class
 
             if(this.sections.intro)
             {
-                TweenLite.fromTo(this.sections.intro.instructions.arrows.label.material, 0.3, { opacity: 0 }, { opacity: 1, delay: 0.5 })
-                if(this.sections.intro.otherInstructions)
-                {
-                    TweenLite.fromTo(this.sections.intro.otherInstructions.label.material, 0.3, { opacity: 0 }, { opacity: 1, delay: 0.75 })
-                }
+                // TweenLite.fromTo(this.sections.intro.instructions.arrows.label.material, 0.3, { opacity: 0 }, { opacity: 1, delay: 0.5 })
+                // if(this.sections.intro.otherInstructions)
+                // {
+                //     TweenLite.fromTo(this.sections.intro.otherInstructions.label.material, 0.3, { opacity: 0 }, { opacity: 1, delay: 0.75 })
+                // }
             }
 
             // Car
@@ -112,7 +100,7 @@ export default class
             }, 300)
 
             // Sound
-            TweenLite.fromTo(this.sounds.engine.volume, 0.5, { master: 0 }, { master: 0.7, delay: 0.3, ease: Power2.easeIn })
+            // TweenLite.fromTo(this.sounds.engine.volume, 0.5, { master: 0 }, { master: 0.7, delay: 0.3, ease: Power2.easeIn })
             window.setTimeout(() =>
             {
                 this.sounds.play('reveal')
@@ -341,15 +329,6 @@ export default class
         this.container.add(this.areas.container)
     }
 
-    setTiles()
-    {
-        this.tiles = new Tiles({
-            resources: this.resources,
-            objects: this.objects,
-            debug: this.debug
-        })
-    }
-
     setWalls()
     {
         this.walls = new Walls({
@@ -411,100 +390,15 @@ export default class
             areas: this.areas,
             zones: this.zones,
             walls: this.walls,
-            tiles: this.tiles,
             debug: this.debugFolder
         }
-
-        // // Distinction A
-        // this.sections.distinctionA = new DistinctionASection({
-        //     ...options,
-        //     x: 0,
-        //     y: - 15
-        // })
-        // this.container.add(this.sections.distinctionA.container)
-
-        // // Distinction B
-        // this.sections.distinctionB = new DistinctionBSection({
-        //     ...options,
-        //     x: 0,
-        //     y: - 15
-        // })
-        // this.container.add(this.sections.distinctionB.container)
-
-        // // Distinction C
-        // this.sections.distinctionC = new DistinctionCSection({
-        //     ...options,
-        //     x: 0,
-        //     y: 0
-        // })
-        // this.container.add(this.sections.distinctionC.container)
-
-        // // Distinction D
-        // this.sections.distinctionD = new DistinctionDSection({
-        //     ...options,
-        //     x: 0,
-        //     y: 0
-        // })
-        // this.container.add(this.sections.distinctionD.container)
-
-        // Intro
-        this.sections.intro = new IntroSection({
-            ...options,
-            x: 0,
-            y: 0
-        })
-        this.container.add(this.sections.intro.container)
-
-        // Crossroads
-        this.sections.crossroads = new CrossroadsSection({
-            ...options,
-            x: 0,
-            y: - 30
-        })
-        this.container.add(this.sections.crossroads.container)
-
-        // Projects
-        this.sections.projects = new ProjectsSection({
-            ...options,
-            x: 30,
-            y: - 30
-            // x: 0,
-            // y: 0
-        })
-        this.container.add(this.sections.projects.container)
-
-        // Information
-        this.sections.information = new InformationSection({
-            ...options,
-            x: 1.2,
-            y: - 55
-            // x: 0,
-            // y: - 10
-        })
-        this.container.add(this.sections.information.container)
 
         // Playground
         this.sections.playground = new PlaygroundSection({
             ...options,
-            x: - 38,
-            y: - 34
-            // x: - 15,
-            // y: - 4
+            x: 10,
+            y: 10
         })
         this.container.add(this.sections.playground.container)
-    }
-
-    setEasterEggs()
-    {
-        this.easterEggs = new EasterEggs({
-            resources: this.resources,
-            car: this.car,
-            walls: this.walls,
-            objects: this.objects,
-            materials: this.materials,
-            areas: this.areas,
-            config: this.config
-        })
-        this.container.add(this.easterEggs.container)
     }
 }

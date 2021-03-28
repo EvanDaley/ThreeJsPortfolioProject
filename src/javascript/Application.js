@@ -52,10 +52,10 @@ export default class Application
             this.config.touch = true
             this.world.controls.setTouch()
 
-            this.passes.horizontalBlurPass.strength = 1
-            this.passes.horizontalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(this.passes.horizontalBlurPass.strength, 0)
-            this.passes.verticalBlurPass.strength = 1
-            this.passes.verticalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(0, this.passes.verticalBlurPass.strength)
+            // this.passes.horizontalBlurPass.strength = 1
+            // this.passes.horizontalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(this.passes.horizontalBlurPass.strength, 0)
+            // this.passes.verticalBlurPass.strength = 1
+            // this.passes.verticalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(0, this.passes.verticalBlurPass.strength)
         }, { once: true })
     }
 
@@ -141,15 +141,15 @@ export default class Application
         // Create passes
         this.passes.renderPass = new RenderPass(this.scene, this.camera.instance)
 
-        this.passes.horizontalBlurPass = new ShaderPass(BlurPass)
-        this.passes.horizontalBlurPass.strength = this.config.touch ? 0 : 1
-        this.passes.horizontalBlurPass.material.uniforms.uResolution.value = new THREE.Vector2(this.sizes.viewport.width, this.sizes.viewport.height)
-        this.passes.horizontalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(this.passes.horizontalBlurPass.strength, 0)
+        // this.passes.horizontalBlurPass = new ShaderPass(BlurPass)
+        // this.passes.horizontalBlurPass.strength = this.config.touch ? 0 : 1
+        // this.passes.horizontalBlurPass.material.uniforms.uResolution.value = new THREE.Vector2(this.sizes.viewport.width, this.sizes.viewport.height)
+        // this.passes.horizontalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(this.passes.horizontalBlurPass.strength, 0)
 
-        this.passes.verticalBlurPass = new ShaderPass(BlurPass)
-        this.passes.verticalBlurPass.strength = this.config.touch ? 0 : 1
-        this.passes.verticalBlurPass.material.uniforms.uResolution.value = new THREE.Vector2(this.sizes.viewport.width, this.sizes.viewport.height)
-        this.passes.verticalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(0, this.passes.verticalBlurPass.strength)
+        // this.passes.verticalBlurPass = new ShaderPass(BlurPass)
+        // this.passes.verticalBlurPass.strength = this.config.touch ? 0 : 1
+        // this.passes.verticalBlurPass.material.uniforms.uResolution.value = new THREE.Vector2(this.sizes.viewport.width, this.sizes.viewport.height)
+        // this.passes.verticalBlurPass.material.uniforms.uStrength.value = new THREE.Vector2(0, this.passes.verticalBlurPass.strength)
 
         // Debug
         if(this.debug)
@@ -157,8 +157,8 @@ export default class Application
             const folder = this.passes.debugFolder.addFolder('blur')
             folder.open()
 
-            folder.add(this.passes.horizontalBlurPass.material.uniforms.uStrength.value, 'x').step(0.001).min(0).max(10)
-            folder.add(this.passes.verticalBlurPass.material.uniforms.uStrength.value, 'y').step(0.001).min(0).max(10)
+            // folder.add(this.passes.horizontalBlurPass.material.uniforms.uStrength.value, 'x').step(0.001).min(0).max(10)
+            // folder.add(this.passes.verticalBlurPass.material.uniforms.uStrength.value, 'y').step(0.001).min(0).max(10)
         }
 
         this.passes.glowsPass = new ShaderPass(GlowsPass)
@@ -186,15 +186,15 @@ export default class Application
 
         // Add passes
         this.passes.composer.addPass(this.passes.renderPass)
-        this.passes.composer.addPass(this.passes.horizontalBlurPass)
-        this.passes.composer.addPass(this.passes.verticalBlurPass)
+        // this.passes.composer.addPass(this.passes.horizontalBlurPass)
+        // this.passes.composer.addPass(this.passes.verticalBlurPass)
         this.passes.composer.addPass(this.passes.glowsPass)
 
         // Time tick
         this.time.on('tick', () =>
         {
-            this.passes.horizontalBlurPass.enabled = this.passes.horizontalBlurPass.material.uniforms.uStrength.value.x > 0
-            this.passes.verticalBlurPass.enabled = this.passes.verticalBlurPass.material.uniforms.uStrength.value.y > 0
+            // this.passes.horizontalBlurPass.enabled = this.passes.horizontalBlurPass.material.uniforms.uStrength.value.x > 0
+            // this.passes.verticalBlurPass.enabled = this.passes.verticalBlurPass.material.uniforms.uStrength.value.y > 0
 
             // Renderer
             this.passes.composer.render()
@@ -207,10 +207,10 @@ export default class Application
         {
             this.renderer.setSize(this.sizes.viewport.width, this.sizes.viewport.height)
             this.passes.composer.setSize(this.sizes.viewport.width, this.sizes.viewport.height)
-            this.passes.horizontalBlurPass.material.uniforms.uResolution.value.x = this.sizes.viewport.width
-            this.passes.horizontalBlurPass.material.uniforms.uResolution.value.y = this.sizes.viewport.height
-            this.passes.verticalBlurPass.material.uniforms.uResolution.value.x = this.sizes.viewport.width
-            this.passes.verticalBlurPass.material.uniforms.uResolution.value.y = this.sizes.viewport.height
+            // this.passes.horizontalBlurPass.material.uniforms.uResolution.value.x = this.sizes.viewport.width
+            // this.passes.horizontalBlurPass.material.uniforms.uResolution.value.y = this.sizes.viewport.height
+            // this.passes.verticalBlurPass.material.uniforms.uResolution.value.x = this.sizes.viewport.width
+            // this.passes.verticalBlurPass.material.uniforms.uResolution.value.y = this.sizes.viewport.height
         })
     }
 
@@ -237,32 +237,7 @@ export default class Application
      */
     setTitle()
     {
-        this.title = {}
-        this.title.frequency = 300
-        this.title.width = 20
-        this.title.position = 0
-        this.title.$element = document.querySelector('title')
-        this.title.absolutePosition = Math.round(this.title.width * 0.25)
-
-        this.time.on('tick', () =>
-        {
-            if(this.world.physics)
-            {
-                this.title.absolutePosition += this.world.physics.car.forwardSpeed
-
-                if(this.title.absolutePosition < 0)
-                {
-                    this.title.absolutePosition = 0
-                }
-            }
-        })
-
-        window.setInterval(() =>
-        {
-            this.title.position = Math.round(this.title.absolutePosition % this.title.width)
-
-            document.title = `${'_'.repeat(this.title.width - this.title.position)}🚗${'_'.repeat(this.title.position)}`
-        }, this.title.frequency)
+        document.title = 'Portfolio'
     }
 
     /**

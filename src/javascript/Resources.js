@@ -62,11 +62,6 @@ import introCreativeCollisionSource from '../models/intro/creative/collision.glb
 import introDevBaseSource from '../models/intro/dev/base.glb'
 import introDevCollisionSource from '../models/intro/dev/collision.glb'
 
-// Crossroads
-import crossroadsStaticFloorShadowSource from '../models/crossroads/static/floorShadow.png'
-import crossroadsStaticBaseSource from '../models/crossroads/static/base.glb'
-import crossroadsStaticCollisionSource from '../models/crossroads/static/collision.glb'
-
 // Car default
 import carDefaultChassisSource from '../models/car/default/chassis.glb'
 import carDefaultWheelSource from '../models/car/default/wheel.glb'
@@ -177,26 +172,6 @@ import areaOpenSource from '../models/area/open.png'
 import areaResetSource from '../models/area/reset.png'
 import areaQuestionMarkSource from '../models/area/questionMark.png'
 
-// Tiles
-import tilesABaseSource from '../models/tiles/a/base.glb'
-import tilesACollisionSource from '../models/tiles/a/collision.glb'
-
-import tilesBBaseSource from '../models/tiles/b/base.glb'
-import tilesBCollisionSource from '../models/tiles/b/collision.glb'
-
-import tilesCBaseSource from '../models/tiles/c/base.glb'
-import tilesCCollisionSource from '../models/tiles/c/collision.glb'
-
-import tilesDBaseSource from '../models/tiles/d/base.glb'
-import tilesDCollisionSource from '../models/tiles/d/collision.glb'
-
-import tilesEBaseSource from '../models/tiles/e/base.glb'
-import tilesECollisionSource from '../models/tiles/e/collision.glb'
-
-// Konami
-import konamiLabelSource from '../models/konami/label.png'
-import konamiLabelTouchSource from '../models/konami/label-touch.png'
-
 // Wigs
 import wig1Source from '../models/wigs/wig1.glb'
 import wig2Source from '../models/wigs/wig2.glb'
@@ -234,49 +209,6 @@ export default class Resources extends EventEmitter
             { name: 'introStaticCollision', source: introStaticCollisionSource },
             { name: 'introStaticFloorShadow', source: introStaticFloorShadowSource, type: 'texture' },
 
-            { name: 'introInstructionsLabels', source: introInstructionsLabelsSource },
-            { name: 'introInstructionsArrows', source: introInstructionsArrowsSource, type: 'texture' },
-            { name: 'introInstructionsControls', source: introInstructionsControlsSource, type: 'texture' },
-            { name: 'introInstructionsOther', source: introInstructionsOtherSource, type: 'texture' },
-
-            { name: 'introArrowKeyBase', source: introArrowKeyBaseSource },
-            { name: 'introArrowKeyCollision', source: introArrowKeyCollisionSource },
-
-            { name: 'introBBase', source: introBBaseSource },
-            { name: 'introBCollision', source: introBCollisionSource },
-
-            { name: 'introRBase', source: introRBaseSource },
-            { name: 'introRCollision', source: introRCollisionSource },
-
-            { name: 'introUBase', source: introUBaseSource },
-            { name: 'introUCollision', source: introUCollisionSource },
-
-            { name: 'introNBase', source: introNBaseSource },
-            { name: 'introNCollision', source: introNCollisionSource },
-
-            { name: 'introOBase', source: introOBaseSource },
-            { name: 'introOCollision', source: introOCollisionSource },
-
-            { name: 'introSBase', source: introSBaseSource },
-            { name: 'introSCollision', source: introSCollisionSource },
-
-            { name: 'introIBase', source: introIBaseSource },
-            { name: 'introICollision', source: introICollisionSource },
-
-            { name: 'introMBase', source: introMBaseSource },
-            { name: 'introMCollision', source: introMCollisionSource },
-
-            { name: 'introCreativeBase', source: introCreativeBaseSource },
-            { name: 'introCreativeCollision', source: introCreativeCollisionSource },
-
-            { name: 'introDevBase', source: introDevBaseSource },
-            { name: 'introDevCollision', source: introDevCollisionSource },
-
-            // Intro
-            { name: 'crossroadsStaticBase', source: crossroadsStaticBaseSource },
-            { name: 'crossroadsStaticCollision', source: crossroadsStaticCollisionSource },
-            { name: 'crossroadsStaticFloorShadow', source: crossroadsStaticFloorShadowSource, type: 'texture' },
-
             // Car default
             { name: 'carDefaultChassis', source: carDefaultChassisSource },
             { name: 'carDefaultWheel', source: carDefaultWheelSource },
@@ -291,43 +223,6 @@ export default class Resources extends EventEmitter
             { name: 'carCyberTruckBackLightsReverse', source: carCyberTruckBackLightsReverseSource },
             { name: 'carCyberTruckAntena', source: carCyberTruckAntenaSource },
 
-            // Project
-            { name: 'projectsBoardStructure', source: projectsBoardStructureSource },
-            { name: 'projectsBoardCollision', source: projectsBoardCollisionSource },
-            { name: 'projectsBoardStructureFloorShadow', source: projectsBoardStructureFloorShadowSource, type: 'texture' },
-            { name: 'projectsBoardPlane', source: projectsBoardPlaneSource },
-
-            { name: 'projectsDistinctionsAwwwardsBase', source: projectsDistinctionsAwwwardsBaseSource },
-            { name: 'projectsDistinctionsAwwwardsCollision', source: projectsDistinctionsAwwwardsCollisionSource },
-            { name: 'projectsDistinctionsFWABase', source: projectsDistinctionsFWABaseSource },
-            { name: 'projectsDistinctionsFWACollision', source: projectsDistinctionsFWACollisionSource },
-            { name: 'projectsDistinctionsCSSDABase', source: projectsDistinctionsCSSDABaseSource },
-            { name: 'projectsDistinctionsCSSDACollision', source: projectsDistinctionsCSSDACollisionSource },
-
-            { name: 'projectsThreejsJourneyFloor', source: projectsThreejsJourneyFloorSource, type: 'texture' },
-            { name: 'projectsChartogneFloor', source: projectsChartogneFloorSource, type: 'texture' },
-            { name: 'projectsZenlyFloor', source: projectsZenlyFloorSource, type: 'texture' },
-            { name: 'projectsCitrixRedbullFloor', source: projectsCitrixRedbullFloorSource, type: 'texture' },
-            { name: 'projectsPriorHoldingsFloor', source: projectsPriorHoldingsFloorSource, type: 'texture' },
-            { name: 'projectsOranoFloor', source: projectsOranoFloorSource, type: 'texture' },
-            { name: 'projectsGleecChatFloor', source: projectsGleecChatFloorSource, type: 'texture' },
-            { name: 'projectsKepplerFloor', source: projectsKepplerFloorSource, type: 'texture' },
-
-            // Information
-            { name: 'informationStaticBase', source: informationStaticBaseSource },
-            { name: 'informationStaticCollision', source: informationStaticCollisionSource },
-            { name: 'informationStaticFloorShadow', source: informationStaticFloorShadowSource, type: 'texture' },
-
-            { name: 'informationBaguetteBase', source: informationBaguetteBaseSource },
-            { name: 'informationBaguetteCollision', source: informationBaguetteCollisionSource },
-
-            { name: 'informationContactTwitterLabel', source: informationContactTwitterLabelSource, type: 'texture' },
-            { name: 'informationContactGithubLabel', source: informationContactGithubLabelSource, type: 'texture' },
-            { name: 'informationContactLinkedinLabel', source: informationContactLinkedinLabelSource, type: 'texture' },
-            { name: 'informationContactMailLabel', source: informationContactMailLabelSource, type: 'texture' },
-
-            { name: 'informationActivities', source: informationActivitiesSource, type: 'texture' },
-
             // Playground
             { name: 'playgroundStaticBase', source: playgroundStaticBaseSource },
             { name: 'playgroundStaticCollision', source: playgroundStaticCollisionSource },
@@ -340,33 +235,6 @@ export default class Resources extends EventEmitter
             // Horn
             { name: 'hornBase', source: hornBaseSource },
             { name: 'hornCollision', source: hornCollisionSource },
-
-            // // Distinction A
-            // { name: 'distinctionAStaticBase', source: distinctionAStaticBaseSource },
-            // { name: 'distinctionAStaticCollision', source: distinctionAStaticCollisionSource },
-            // { name: 'distinctionAStaticFloorShadow', source: distinctionAStaticFloorShadowSource, type: 'texture' },
-
-            // // Distinction B
-            // { name: 'distinctionBStaticBase', source: distinctionBStaticBaseSource },
-            // { name: 'distinctionBStaticCollision', source: distinctionBStaticCollisionSource },
-            // { name: 'distinctionBStaticFloorShadow', source: distinctionBStaticFloorShadowSource, type: 'texture' },
-
-            // // Distinction C
-            // { name: 'distinctionCStaticBase', source: distinctionCStaticBaseSource },
-            // { name: 'distinctionCStaticCollision', source: distinctionCStaticCollisionSource },
-            // { name: 'distinctionCStaticFloorShadow', source: distinctionCStaticFloorShadowSource, type: 'texture' },
-
-            // // Cone
-            // { name: 'coneBase', source: coneBaseSource },
-            // { name: 'coneCollision', source: coneCollisionSource },
-
-            // // Awwwards trophy
-            // { name: 'awwwardsTrophyBase', source: awwwardsTrophyBaseSource },
-            // { name: 'awwwardsTrophyCollision', source: awwwardsTrophyCollisionSource },
-
-            // Webby trophy
-            { name: 'webbyTrophyBase', source: webbyTrophyBaseSource },
-            { name: 'webbyTrophyCollision', source: webbyTrophyCollisionSource },
 
             // Lemon
             { name: 'lemonBase', source: lemonBaseSource },
@@ -386,26 +254,6 @@ export default class Resources extends EventEmitter
             { name: 'areaOpen', source: areaOpenSource, type: 'texture' },
             { name: 'areaReset', source: areaResetSource, type: 'texture' },
             { name: 'areaQuestionMark', source: areaQuestionMarkSource, type: 'texture' },
-
-            // Tiles
-            { name: 'tilesABase', source: tilesABaseSource },
-            { name: 'tilesACollision', source: tilesACollisionSource },
-
-            { name: 'tilesBBase', source: tilesBBaseSource },
-            { name: 'tilesBCollision', source: tilesBCollisionSource },
-
-            { name: 'tilesCBase', source: tilesCBaseSource },
-            { name: 'tilesCCollision', source: tilesCCollisionSource },
-
-            { name: 'tilesDBase', source: tilesDBaseSource },
-            { name: 'tilesDCollision', source: tilesDCollisionSource },
-
-            { name: 'tilesEBase', source: tilesEBaseSource },
-            { name: 'tilesECollision', source: tilesECollisionSource },
-
-            // Konami
-            { name: 'konamiLabel', source: konamiLabelSource, type: 'texture' },
-            { name: 'konamiLabelTouch', source: konamiLabelTouchSource, type: 'texture' },
 
             // Wigs
             { name: 'wig1', source: wig1Source },
