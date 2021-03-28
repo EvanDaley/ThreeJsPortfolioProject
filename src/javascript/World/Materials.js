@@ -36,6 +36,10 @@ export default class Materials
         this.pures.items.white.name = 'pureWhite'
         this.pures.items.yellow = new THREE.MeshBasicMaterial({ color: 0xffe889 })
         this.pures.items.yellow.name = 'pureYellow'
+
+        this.pures.items.hamsterBrown =  new THREE.MeshToonMaterial({ color: 0x49ef4})
+        this.pures.items.hamsterBrown.name = 'hamsterBrown'
+
     }
 
     setShades()

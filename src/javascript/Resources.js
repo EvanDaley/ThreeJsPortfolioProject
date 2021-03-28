@@ -62,6 +62,9 @@ import introCreativeCollisionSource from '../models/intro/creative/collision.glb
 import introDevBaseSource from '../models/intro/dev/base.glb'
 import introDevCollisionSource from '../models/intro/dev/collision.glb'
 
+// Character
+import characterDefaultSource from '../models/character/character_1.glb'
+
 // Car default
 import carDefaultChassisSource from '../models/car/default/chassis.glb'
 import carDefaultWheelSource from '../models/car/default/wheel.glb'
@@ -209,7 +212,11 @@ export default class Resources extends EventEmitter
             { name: 'introStaticCollision', source: introStaticCollisionSource },
             { name: 'introStaticFloorShadow', source: introStaticFloorShadowSource, type: 'texture' },
 
+            // Character
+            { name: 'characterDefaultSource', source: characterDefaultSource },
+
             // Car default
+            { name: 'carDefaultChassis', source: carDefaultChassisSource },
             { name: 'carDefaultChassis', source: carDefaultChassisSource },
             { name: 'carDefaultWheel', source: carDefaultWheelSource },
             { name: 'carDefaultBackLightsBrake', source: carDefaultBackLightsBrakeSource },
